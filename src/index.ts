@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import { router } from './router';
 
 
 
@@ -10,6 +11,10 @@ mongoose
     const port = 3001;
 
     console.log('Conectado com sucesso');
+
+    app.use(express.json());
+    app.use(router);
+
     app.listen(port, () => console.log(`🚀 Server running on http://localhost:${port}`));
   })
   .catch((error) => console.log(error));
